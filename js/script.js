@@ -63,33 +63,107 @@ document.getElementById("roi").textContent =
 document.getElementById("win-rate").textContent =
     dashboard.winRate.toFixed(1) + "%";
 
-// Get the table body from HTML
 const betsTable = document.getElementById("bets-table");
 
-// Create a table row for every bet
-bets.forEach(function(bet) {
+function renderBets() {
+    betsTable.innerHTML = "";
 
-    const row = document.createElement("div");
-    row.classList.add("table-row");
+    bets.forEach(function(bet) {
+        const row = document.createElement("div");
+        row.classList.add("table-row");
 
-    row.innerHTML = `
-        <div class="event">
-            <strong>${bet.team1}</strong>
-            <small>vs ${bet.team2}</small>
-        </div>
+        row.innerHTML = `
+            <div class="event">
+                <strong>${bet.team1}</strong>
+                <small>vs ${bet.team2}</small>
+            </div>
 
-        <span>${bet.type}</span>
+            <span>${bet.type}</span>
+            <span>${bet.odds.toFixed(2)}</span>
+            <span>CHF ${bet.stake.toFixed(2)}</span>
 
-        <span>${bet.odds.toFixed(2)}</span>
+            <span class="badge ${bet.result}">
+                ${bet.result.toUpperCase()}
+            </span>
 
-        <span>CHF ${bet.stake.toFixed(2)}</span>
+            <strong>
+                ${bet.profit !== 0
+                    ? (bet.profit > 0 ? "+ " : "") + "CHF " + bet.profit.toFixed(2)
+                    : "—"
+                }
+            </strong>
+        `;
 
-        <span class="badge ${bet.result}">
-            ${bet.result.toUpperCase()}
-        </span>
+        betsTable.appendChild(row);
+    });
+}
 
-        <strong>${bet.profit !== 0 ? "CHF " + bet.profit.toFixed(2) : "—"}</strong>
-    `;
+renderBets();
 
-    betsTable.appendChild(row);
+// Add Bet Modal
+const addBetButton = document.getElementById("add-bet-button");
+const addBetModal = document.getElementById("add-bet-modal");
+const closeModalButton = document.getElementById("close-modal");
+const cancelModalButton = document.getElementById("cancel-modal");
+const addBetForm = document.getElementById("add-bet-form");
+
+
+// Open modal
+addBetButton.addEventListener("click", function() {
+    addBetModal.classList.add("active");
+});
+
+
+// Close modal
+closeModalButton.addEventListener("click", function() {
+    addBetModal.classList.remove("active");
+});
+
+
+// Cancel button
+cancelModalButton.addEventListener("click", function() {
+    addBetModal.classList.remove("active");
+});
+
+// Save new bet
+addBetForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const team1 = document.getElementById("team1").value;
+    const team2 = document.getElementById("team2").value;
+    const type = document.getElementById("bet-type").value;
+    const odds = Number(document.getElementById("odds").value);
+    const stake = Number(document.getElementById("stake").value);
+    const result = document.getElementById("result").value;
+
+    let profit = 0;
+
+    if (result === "win") {
+        profit = stake * (odds - 1);
+    }
+
+    if (result === "loss") {
+        profit = -stake;
+    }
+
+
+    const newBet = {
+        team1: team1,
+        team2: team2,
+        type: type,
+        odds: odds,
+        stake: stake,
+        result: result,
+        profit: profit
+    };
+
+
+    bets.push(newBet);
+
+    addBetForm.reset();
+
+    addBetModal.classList.remove("active");
+
+    renderBets();
 });
