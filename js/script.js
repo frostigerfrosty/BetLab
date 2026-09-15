@@ -7,7 +7,7 @@ const dashboard = {
 };
 
 // Bets
-const bets = [
+const defaultBets = [
     {
         team1: "Arsenal",
         team2: "Chelsea",
@@ -48,6 +48,10 @@ const bets = [
         profit: 0
     }
 ];
+
+const savedBets = localStorage.getItem("betlab_bets");
+
+const bets = savedBets ? JSON.parse(savedBets) : defaultBets;
 
 
 //writing the values into HTML
@@ -160,6 +164,8 @@ addBetForm.addEventListener("submit", function(event) {
 
 
     bets.push(newBet);
+
+    localStorage.setItem("betlab_bets", JSON.stringify(bets));
 
     addBetForm.reset();
 
