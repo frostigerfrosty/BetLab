@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetLab - Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span class="logo-mark">B</span>
+                <span>BETLAB</span>
+            </div>
+
+            <nav class="navigation">
+
+                <p class="nav-title">MENU</p>
+
+                <a href="#" class="nav-item active">
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>↗</span>
+                    My Bets
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>◒</span>
+                    Analytics
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>⌁</span>
+                    Calculator
+                </a>
+
+                <p class="nav-title second-title">GENERAL</p>
+
+                <a href="#" class="nav-item">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="profile">
+                    <div class="profile-picture">L</div>
+
+                    <div>
+                        <strong>Laurin</strong>
+                        <small>Personal Account</small>
+                    </div>
+
+                    <span class="profile-more">•••</span>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Overview of your betting performance</p>
+                </div>
+
+                <div class="topbar-actions">
+
+                    <button class="date-button">
+                        September 2026
+                        <span>⌄</span>
+                    </button>
+
+                    <button class="add-button">
+                        + Add Bet
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- STAT CARDS -->
+            <section class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+                        <span>Bankroll</span>
+                        <span class="stat-icon">CHF</span>
+                    </div>
+
+                    <div class="stat-value">
+                        CHF 420.50
+                    </div>
+
+                    <div class="stat-change positive">
+                        ↑ 8.4%
+                        <span>vs. last month</span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+                        <span>Total Profit</span>
+                        <span class="stat-icon">↗</span>
+                    </div>
+
+                    <div class="stat-value positive-text">
+                        + CHF 84.20
+                    </div>
+
+                    <div class="stat-change positive">
+                        ↑ 12.6%
+                        <span>vs. last month</span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+                        <span>ROI</span>
+                        <span class="stat-icon">%</span>
+                    </div>
+
+                    <div class="stat-value">
+                        8.42%
+                    </div>
+
+                    <div class="stat-change positive">
+                        ↑ 2.1%
+                        <span>vs. last month</span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+                        <span>Win Rate</span>
+                        <span class="stat-icon">✓</span>
+                    </div>
+
+                    <div class="stat-value">
+                        61.2%
+                    </div>
+
+                    <div class="stat-change">
+                        127 bets
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- MAIN GRID -->
+            <section class="dashboard-grid">
+
+                <!-- PERFORMANCE -->
+                <div class="card performance-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Performance</h2>
+                            <p>Profit development over time</p>
+                        </div>
+
+                        <select>
+                            <option>Last 30 days</option>
+                            <option>Last 90 days</option>
+                            <option>This year</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="chart">
+
+                        <div class="chart-y">
+                            <span>+100</span>
+                            <span>+50</span>
+                            <span>0</span>
+                            <span>-50</span>
+                        </div>
+
+                        <div class="chart-area">
+
+                            <div class="grid-line line-1"></div>
+                            <div class="grid-line line-2"></div>
+                            <div class="grid-line line-3"></div>
+                            <div class="grid-line line-4"></div>
+
+                            <div class="chart-line"></div>
+
+                            <div class="chart-point p1"></div>
+                            <div class="chart-point p2"></div>
+                            <div class="chart-point p3"></div>
+                            <div class="chart-point p4"></div>
+                            <div class="chart-point p5"></div>
+                            <div class="chart-point p6"></div>
+                            <div class="chart-point p7"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="chart-x">
+                        <span>01 Sep</span>
+                        <span>07 Sep</span>
+                        <span>14 Sep</span>
+                        <span>21 Sep</span>
+                        <span>30 Sep</span>
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK STATS -->
+                <div class="card quick-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Bet Distribution</h2>
+                            <p>Your most used bet types</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="distribution">
+
+                        <div class="distribution-item">
+                            <div class="distribution-top">
+                                <span>Match Winner</span>
+                                <strong>42%</strong>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 42%;"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="distribution-item">
+                            <div class="distribution-top">
+                                <span>Over / Under</span>
+                                <strong>31%</strong>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 31%;"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="distribution-item">
+                            <div class="distribution-top">
+                                <span>BTTS</span>
+                                <strong>17%</strong>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 17%;"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="distribution-item">
+                            <div class="distribution-top">
+                                <span>Other</span>
+                                <strong>10%</strong>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 10%;"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECENT BETS -->
+            <section class="card bets-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Recent Bets</h2>
+                        <p>Your latest recorded bets</p>
+                    </div>
+
+                    <a href="#" class="view-all">
+                        View all →
+                    </a>
+
+                </div>
+
+
+                <div class="table">
+
+                    <div class="table-row table-head">
+                        <span>EVENT</span>
+                        <span>BET</span>
+                        <span>ODDS</span>
+                        <span>STAKE</span>
+                        <span>RESULT</span>
+                        <span>PROFIT</span>
+                    </div>
+
+
+                    <div class="table-row">
+
+                        <div class="event">
+                            <strong>Arsenal</strong>
+                            <small>vs Chelsea</small>
+                        </div>
+
+                        <span>Match Winner</span>
+
+                        <span>1.72</span>
+
+                        <span>CHF 20</span>
+
+                        <span class="badge win">WIN</span>
+
+                        <strong class="profit">+ CHF 14.40</strong>
+
+                    </div>
+
+
+                    <div class="table-row">
+
+                        <div class="event">
+                            <strong>Barcelona</strong>
+                            <small>vs Sevilla</small>
+                        </div>
+
+                        <span>Over 2.5</span>
+
+                        <span>1.84</span>
+
+                        <span>CHF 15</span>
+
+                        <span class="badge loss">LOSS</span>
+
+                        <strong class="loss-text">- CHF 15.00</strong>
+
+                    </div>
+
+
+                    <div class="table-row">
+
+                        <div class="event">
+                            <strong>Liverpool</strong>
+                            <small>vs Brighton</small>
+                        </div>
+
+                        <span>Match Winner</span>
+
+                        <span>1.55</span>
+
+                        <span>CHF 25</span>
+
+                        <span class="badge win">WIN</span>
+
+                        <strong class="profit">+ CHF 13.75</strong>
+
+                    </div>
+
+
+                    <div class="table-row">
+
+                        <div class="event">
+                            <strong>Real Madrid</strong>
+                            <small>vs Valencia</small>
+                        </div>
+
+                        <span>BTTS</span>
+
+                        <span>1.80</span>
+
+                        <span>CHF 10</span>
+
+                        <span class="badge pending">PENDING</span>
+
+                        <strong>—</strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

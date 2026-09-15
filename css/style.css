@@ -1,0 +1,799 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #0b0d10;
+    color: #f4f5f7;
+}
+
+
+/* =========================
+   APP
+========================= */
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    width: 240px;
+    min-height: 100vh;
+
+    background: #0f1115;
+    border-right: 1px solid #20242b;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 28px 16px;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    padding: 0 12px;
+    margin-bottom: 45px;
+}
+
+.logo-mark {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #6366f1;
+
+    font-size: 14px;
+}
+
+
+/* NAVIGATION */
+
+.nav-title {
+    color: #555b66;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 1.2px;
+
+    padding: 0 12px;
+    margin-bottom: 10px;
+}
+
+.second-title {
+    margin-top: 35px;
+}
+
+
+.nav-item {
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 0 12px;
+    margin-bottom: 4px;
+
+    border-radius: 8px;
+
+    color: #858b95;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: 0.2s;
+}
+
+.nav-item span {
+    width: 18px;
+
+    text-align: center;
+
+    font-size: 15px;
+}
+
+.nav-item:hover {
+    background: #171a20;
+    color: #ffffff;
+}
+
+.nav-item.active {
+    background: #1b1e27;
+    color: #ffffff;
+}
+
+
+/* SIDEBAR BOTTOM */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.profile {
+    border-top: 1px solid #20242b;
+
+    padding: 18px 8px 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.profile-picture {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: #272b34;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.profile strong {
+    display: block;
+
+    font-size: 12px;
+}
+
+.profile small {
+    display: block;
+
+    color: #646a74;
+
+    font-size: 10px;
+
+    margin-top: 3px;
+}
+
+.profile-more {
+    margin-left: auto;
+
+    color: #646a74;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+    flex: 1;
+
+    padding: 34px 42px;
+
+    max-width: 1600px;
+}
+
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 32px;
+}
+
+.topbar h1 {
+    font-size: 25px;
+    letter-spacing: -0.5px;
+}
+
+.topbar p {
+    color: #707680;
+
+    font-size: 12px;
+
+    margin-top: 6px;
+}
+
+.topbar-actions {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.date-button,
+.add-button {
+    height: 38px;
+
+    padding: 0 15px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+}
+
+.date-button {
+    background: #12151a;
+    border: 1px solid #242830;
+
+    color: #b8bdc6;
+}
+
+.date-button span {
+    margin-left: 8px;
+}
+
+.add-button {
+    border: none;
+
+    background: #6366f1;
+    color: white;
+
+    font-weight: 600;
+
+    padding: 0 18px;
+}
+
+
+/* =========================
+   STAT CARDS
+========================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 14px;
+}
+
+.stat-card {
+    background: #111419;
+
+    border: 1px solid #20242b;
+
+    border-radius: 10px;
+
+    padding: 20px;
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+
+    color: #747a84;
+
+    font-size: 11px;
+}
+
+.stat-icon {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    background: #1a1d23;
+
+    color: #8d93a0;
+
+    font-size: 9px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 600;
+
+    margin-top: 15px;
+
+    letter-spacing: -0.5px;
+}
+
+.positive-text {
+    color: #4ade80;
+}
+
+.stat-change {
+    color: #717781;
+
+    font-size: 10px;
+
+    margin-top: 9px;
+}
+
+.stat-change span {
+    margin-left: 5px;
+}
+
+.positive {
+    color: #4ade80;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background: #111419;
+
+    border: 1px solid #20242b;
+
+    border-radius: 10px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 22px;
+}
+
+.card-header h2 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card-header p {
+    color: #656b75;
+
+    font-size: 10px;
+
+    margin-top: 5px;
+}
+
+.card-header select {
+    background: #171a20;
+
+    color: #8e949e;
+
+    border: 1px solid #252a31;
+
+    border-radius: 6px;
+
+    padding: 7px 9px;
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   DASHBOARD GRID
+========================= */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 14px;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================
+   PERFORMANCE
+========================= */
+
+.performance-card {
+    padding: 22px;
+}
+
+.chart {
+    height: 230px;
+
+    display: flex;
+
+    margin-top: 15px;
+}
+
+.chart-y {
+    width: 35px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: #505660;
+
+    font-size: 9px;
+
+    padding-bottom: 5px;
+}
+
+.chart-area {
+    position: relative;
+
+    flex: 1;
+
+    overflow: hidden;
+}
+
+.grid-line {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    border-top: 1px solid #1c2026;
+}
+
+.line-1 {
+    top: 0;
+}
+
+.line-2 {
+    top: 33%;
+}
+
+.line-3 {
+    top: 66%;
+}
+
+.line-4 {
+    bottom: 0;
+}
+
+
+/* FAKE CHART */
+
+.chart-line {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    clip-path: polygon(
+        0% 76%,
+        10% 69%,
+        20% 73%,
+        30% 55%,
+        40% 62%,
+        50% 42%,
+        60% 48%,
+        70% 29%,
+        80% 36%,
+        90% 17%,
+        100% 22%,
+        100% 25%,
+        90% 20%,
+        80% 39%,
+        70% 32%,
+        60% 51%,
+        50% 45%,
+        40% 65%,
+        30% 58%,
+        20% 76%,
+        10% 72%,
+        0% 79%
+    );
+
+    background: #6366f1;
+    opacity: 0.8;
+}
+
+.chart-point {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    background: #8b8ff8;
+
+    border: 2px solid #111419;
+
+    border-radius: 50%;
+}
+
+.p1 {
+    left: 9%;
+    top: 69%;
+}
+
+.p2 {
+    left: 29%;
+    top: 55%;
+}
+
+.p3 {
+    left: 49%;
+    top: 42%;
+}
+
+.p4 {
+    left: 69%;
+    top: 29%;
+}
+
+.p5 {
+    left: 89%;
+    top: 17%;
+}
+
+.chart-x {
+    margin-left: 35px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #505660;
+
+    font-size: 9px;
+
+    margin-top: 8px;
+}
+
+
+/* =========================
+   DISTRIBUTION
+========================= */
+
+.quick-card {
+    padding: 22px;
+}
+
+.distribution {
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+
+    margin-top: 32px;
+}
+
+.distribution-top {
+    display: flex;
+    justify-content: space-between;
+
+    color: #969ca5;
+
+    font-size: 11px;
+
+    margin-bottom: 8px;
+}
+
+.distribution-top strong {
+    color: #d4d7dc;
+
+    font-size: 10px;
+}
+
+.progress {
+    height: 5px;
+
+    background: #20242b;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+
+    background: #6366f1;
+
+    border-radius: 5px;
+}
+
+
+/* =========================
+   BETS
+========================= */
+
+.bets-card {
+    padding: 22px;
+}
+
+.view-all {
+    color: #747aff;
+
+    text-decoration: none;
+
+    font-size: 10px;
+}
+
+.table {
+    width: 100%;
+}
+
+.table-row {
+    display: grid;
+
+    grid-template-columns: 2fr 1.5fr 0.8fr 0.8fr 1fr 1fr;
+
+    align-items: center;
+
+    min-height: 62px;
+
+    border-top: 1px solid #1d2127;
+
+    color: #9a9fa8;
+
+    font-size: 11px;
+}
+
+.table-head {
+    min-height: 35px;
+
+    border-top: none;
+
+    color: #505660;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+}
+
+.event strong {
+    display: block;
+
+    color: #d7d9dd;
+
+    font-size: 11px;
+}
+
+.event small {
+    display: block;
+
+    color: #606670;
+
+    font-size: 9px;
+
+    margin-top: 4px;
+}
+
+
+/* BADGES */
+
+.badge {
+    width: fit-content;
+
+    padding: 5px 8px;
+
+    border-radius: 5px;
+
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.badge.win {
+    background: rgba(74, 222, 128, 0.1);
+
+    color: #4ade80;
+}
+
+.badge.loss {
+    background: rgba(248, 113, 113, 0.1);
+
+    color: #f87171;
+}
+
+.badge.pending {
+    background: rgba(250, 204, 21, 0.1);
+
+    color: #facc15;
+}
+
+.profit {
+    color: #4ade80;
+}
+
+.loss-text {
+    color: #f87171;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .sidebar {
+        width: 70px;
+
+        padding: 20px 10px;
+    }
+
+    .logo span:last-child,
+    .nav-title,
+    .nav-item:not(.active)::after,
+    .nav-item {
+        font-size: 0;
+    }
+
+    .nav-item span {
+        font-size: 15px;
+    }
+
+    .profile div:not(.profile-picture),
+    .profile-more {
+        display: none;
+    }
+
+    .main {
+        padding: 25px 20px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        align-items: flex-start;
+
+        gap: 15px;
+
+        flex-direction: column;
+    }
+
+    .table {
+        overflow-x: auto;
+    }
+
+}
