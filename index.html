@@ -6,7 +6,7 @@
     <title>BetLab - Dashboard</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script> <!--defer is being used so the JS only gets used when the HTML is fully loaded-->
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
@@ -127,10 +127,6 @@
                     CHF 0.00
                     </div>
 
-                    <div class="stat-value positive-text">
-                        + CHF 84.20
-                    </div>
-
                     <div class="stat-change positive">
                         ↑ 12.6%
                         <span>vs. last month</span>
@@ -145,10 +141,6 @@
                     0.00%
                     </div>
 
-                    <div class="stat-value">
-                        8.42%
-                    </div>
-
                     <div class="stat-change positive">
                         ↑ 2.1%
                         <span>vs. last month</span>
@@ -161,10 +153,6 @@
 
                     <div class="stat-value" id="win-rate">
                     0.0%
-                    </div>
-
-                    <div class="stat-value">
-                        61.2%
                     </div>
 
                     <div class="stat-change">
@@ -335,86 +323,10 @@
                         <span>RESULT</span>
                         <span>PROFIT</span>
                     </div>
-
-
-                    <div class="table-row">
-
-                        <div class="event">
-                            <strong>Arsenal</strong>
-                            <small>vs Chelsea</small>
-                        </div>
-
-                        <span>Match Winner</span>
-
-                        <span>1.72</span>
-
-                        <span>CHF 20</span>
-
-                        <span class="badge win">WIN</span>
-
-                        <strong class="profit">+ CHF 14.40</strong>
-
-                    </div>
-
-
-                    <div class="table-row">
-
-                        <div class="event">
-                            <strong>Barcelona</strong>
-                            <small>vs Sevilla</small>
-                        </div>
-
-                        <span>Over 2.5</span>
-
-                        <span>1.84</span>
-
-                        <span>CHF 15</span>
-
-                        <span class="badge loss">LOSS</span>
-
-                        <strong class="loss-text">- CHF 15.00</strong>
-
-                    </div>
-
-
-                    <div class="table-row">
-
-                        <div class="event">
-                            <strong>Liverpool</strong>
-                            <small>vs Brighton</small>
-                        </div>
-
-                        <span>Match Winner</span>
-
-                        <span>1.55</span>
-
-                        <span>CHF 25</span>
-
-                        <span class="badge win">WIN</span>
-
-                        <strong class="profit">+ CHF 13.75</strong>
-
-                    </div>
-
-
-                    <div class="table-row">
-
-                        <div class="event">
-                            <strong>Real Madrid</strong>
-                            <small>vs Valencia</small>
-                        </div>
-
-                        <span>BTTS</span>
-
-                        <span>1.80</span>
-
-                        <span>CHF 10</span>
-
-                        <span class="badge pending">PENDING</span>
-
+                    <div class="table-body" id="bets-table"></div>
                         <strong>—</strong>
 
-                    </div>
+                    
 
                 </div>
 
