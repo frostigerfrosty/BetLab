@@ -112,7 +112,6 @@ function updateDashboard() {
         bets.length + (bets.length === 1 ? " bet" : " bets");
 }
 
-updateDashboard();
 
 const betsTable = document.getElementById("bets-table");
 
@@ -150,6 +149,8 @@ function renderBets() {
 }
 
 renderBets();
+renderChart();
+updateDashboard();
 
 function renderChart() {
 
@@ -169,9 +170,12 @@ function renderChart() {
     });
 
     if (values.length < 2) {
-        chartLine.style.clipPath = "none";
+        chartLine.setAttribute("points", "0,50 100,50");
         return;
     }
+
+    const width = 100;
+    const height = 100;
 
     const minValue = Math.min(...values);
     const maxValue = Math.max(...values);
@@ -180,15 +184,16 @@ function renderChart() {
 
     const points = values.map(function(value, index) {
 
-        const x = (index / (values.length - 1)) * 100;
+        const x = (index / (values.length - 1)) * width;
 
-        const y = 100 - ((value - minValue) / range) * 100;
+        const y =
+            height -
+            ((value - minValue) / range) * height;
 
-        return `${x}% ${y}%`;
+        return `${x},${y}`;
     });
 
-    chartLine.style.clipPath =
-        `polygon(${points.join(", ")})`;
+    chartLine.setAttribute("points", points.join(" "));
 }
 
 // Add Bet Modal
@@ -259,6 +264,8 @@ addBetForm.addEventListener("submit", function(event) {
     addBetModal.classList.remove("active");
 
     renderBets();
+
+    renderChart();
 
     updateDashboard();
 });
