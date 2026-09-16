@@ -202,7 +202,9 @@
                         <div class="grid-line line-3"></div>
                         <div class="grid-line line-4"></div>
 
-                        <div class="chart-line" id="chart-line"></div>
+                        <svg class="chart-svg" id="chart-svg">
+                        <polyline id="chart-line" />
+                        </svg>
 
                         </div>
 
@@ -382,46 +384,56 @@
 
             <div class="form-row">
 
-                <div class="form-group">
-                    <label for="odds">Odds</label>
+        <div class="form-group">
+            <label for="odds">Odds</label>
 
-                    <input
-                        type="number"
-                        id="odds"
-                        step="0.01"
-                        min="1"
-                        placeholder="1.72"
-                        required
-                    >
-                </div>
-
-
-                <div class="form-group">
-                    <label for="stake">Stake (CHF)</label>
-
-                    <input
-                        type="number"
-                        id="stake"
-                        step="0.01"
-                        min="0.01"
-                        placeholder="20.00"
-                        required
-                    >
-                </div>
-
-            </div>
+            <input
+            type="number"
+            id="odds"
+            step="0.01"
+            min="1"
+            placeholder="1.72"
+            required
+            >
+        </div>
 
 
-            <div class="form-group">
-                <label for="result">Result</label>
+        <div class="form-group">
+            <label for="stake">Stake (CHF)</label>
 
-                <select id="result" required>
-                    <option value="pending">Pending</option>
-                    <option value="win">Win</option>
-                    <option value="loss">Loss</option>
-                </select>
-            </div>
+            <input
+            type="number"
+            id="stake"
+            step="0.01"
+            min="0.01"
+            placeholder="20.00"
+            required
+            >
+        </div>
 
+    </div>
+
+
+<div class="form-group">
+    <label for="bet-date">Date</label>
+
+    <input
+        type="date"
+        id="bet-date"
+        required
+    >
+</div>
+
+
+<div class="form-group">
+    <label for="result">Result</label>
+
+    <select id="result" required>
+        <option value="pending">Pending</option>
+        <option value="win">Win</option>
+        <option value="loss">Loss</option>
+    </select>
+</div>
 
             <div class="modal-actions">
 
