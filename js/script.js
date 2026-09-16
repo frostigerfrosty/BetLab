@@ -1,7 +1,7 @@
 // Dashboard-Data
 const startingBankroll = 420.50;
 
-// Bets
+// Default Bets (if no bets are added, these are shown)
 const defaultBets = [
     {
         team1: "Arsenal",
@@ -9,6 +9,7 @@ const defaultBets = [
         type: "Match Winner",
         odds: 1.72,
         stake: 20,
+        date: "2026-09-01",
         result: "win",
         profit: 14.40
     },
@@ -19,6 +20,7 @@ const defaultBets = [
         type: "Over 2.5",
         odds: 1.84,
         stake: 15,
+        date: "2026-09-07",
         result: "loss",
         profit: -15
     },
@@ -29,6 +31,7 @@ const defaultBets = [
         type: "Match Winner",
         odds: 1.55,
         stake: 25,
+        date: "2026-09-14",
         result: "win",
         profit: 13.75
     },
@@ -39,6 +42,7 @@ const defaultBets = [
         type: "BTTS",
         odds: 1.80,
         stake: 10,
+        date: "2026-09-21",
         result: "pending",
         profit: 0
     }
@@ -47,6 +51,23 @@ const defaultBets = [
 const savedBets = localStorage.getItem("betlab_bets");
 
 const bets = savedBets ? JSON.parse(savedBets) : defaultBets;
+
+const fallbackDates = [
+    "2026-09-01",
+    "2026-09-07",
+    "2026-09-14",
+    "2026-09-21"
+];
+
+bets.forEach(function(bet, index) {
+
+    if (!bet.date) {
+        bet.date = fallbackDates[index] || "2026-09-30";
+    }
+
+});
+
+localStorage.setItem("betlab_bets", JSON.stringify(bets));
 
 function calculateDashboard() {
 
@@ -123,6 +144,7 @@ function renderBets() {
         row.classList.add("table-row");
 
         row.innerHTML = `
+            <span>${bet.date}</span>
             <div class="event">
                 <strong>${bet.team1}</strong>
                 <small>vs ${bet.team2}</small>
@@ -155,24 +177,54 @@ updateDashboard();
 function renderChart() {
 
     const chartLine = document.getElementById("chart-line");
+    const chartXAxis = document.getElementById("chart-x");
+
+    // Bets nach Datum sortieren
+    const sortedBets = [...bets]
+        .filter(function(bet) {
+            return bet.result !== "pending";
+        })
+        .sort(function(a, b) {
+            return new Date(a.date) - new Date(b.date);
+        });
+
+    chartXAxis.innerHTML = "";
+
+sortedBets.forEach(function(bet) {
+
+    const date = new Date(bet.date);
+
+    const label = date.toLocaleDateString("de-CH", {
+        day: "2-digit",
+        month: "short"
+    });
+
+    const span = document.createElement("span");
+    span.textContent = label;
+
+    chartXAxis.appendChild(span);
+});
 
     let cumulativeProfit = 0;
+
     const values = [0];
 
-    bets.forEach(function(bet) {
 
-        if (bet.result === "pending") {
-            return;
-        }
+    sortedBets.forEach(function(bet) {
 
         cumulativeProfit += bet.profit;
+
         values.push(cumulativeProfit);
     });
 
+
     if (values.length < 2) {
+
         chartLine.setAttribute("points", "0,50 100,50");
+
         return;
     }
+
 
     const width = 100;
     const height = 100;
@@ -182,9 +234,11 @@ function renderChart() {
 
     const range = maxValue - minValue || 1;
 
+
     const points = values.map(function(value, index) {
 
-        const x = (index / (values.length - 1)) * width;
+        const x =
+            (index / (values.length - 1)) * width;
 
         const y =
             height -
@@ -193,7 +247,11 @@ function renderChart() {
         return `${x},${y}`;
     });
 
-    chartLine.setAttribute("points", points.join(" "));
+
+    chartLine.setAttribute(
+        "points",
+        points.join(" ")
+    );
 }
 
 // Add Bet Modal
@@ -231,6 +289,7 @@ addBetForm.addEventListener("submit", function(event) {
     const type = document.getElementById("bet-type").value;
     const odds = Number(document.getElementById("odds").value);
     const stake = Number(document.getElementById("stake").value);
+    const date = document.getElementById("bet-date").value;
     const result = document.getElementById("result").value;
 
     let profit = 0;
@@ -250,6 +309,7 @@ addBetForm.addEventListener("submit", function(event) {
         type: type,
         odds: odds,
         stake: stake,
+        date: date,
         result: result,
         profit: profit
     };
