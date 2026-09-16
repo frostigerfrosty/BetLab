@@ -151,6 +151,46 @@ function renderBets() {
 
 renderBets();
 
+function renderChart() {
+
+    const chartLine = document.getElementById("chart-line");
+
+    let cumulativeProfit = 0;
+    const values = [0];
+
+    bets.forEach(function(bet) {
+
+        if (bet.result === "pending") {
+            return;
+        }
+
+        cumulativeProfit += bet.profit;
+        values.push(cumulativeProfit);
+    });
+
+    if (values.length < 2) {
+        chartLine.style.clipPath = "none";
+        return;
+    }
+
+    const minValue = Math.min(...values);
+    const maxValue = Math.max(...values);
+
+    const range = maxValue - minValue || 1;
+
+    const points = values.map(function(value, index) {
+
+        const x = (index / (values.length - 1)) * 100;
+
+        const y = 100 - ((value - minValue) / range) * 100;
+
+        return `${x}% ${y}%`;
+    });
+
+    chartLine.style.clipPath =
+        `polygon(${points.join(", ")})`;
+}
+
 // Add Bet Modal
 const addBetButton = document.getElementById("add-bet-button");
 const addBetModal = document.getElementById("add-bet-modal");
