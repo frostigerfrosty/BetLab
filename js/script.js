@@ -1,10 +1,5 @@
 // Dashboard-Data
-const dashboard = {
-    bankroll: 420.50,
-    totalProfit: 84.20,
-    roi: 8.42,
-    winRate: 61.2
-};
+const startingBankroll = 420.50;
 
 // Bets
 const defaultBets = [
@@ -53,19 +48,71 @@ const savedBets = localStorage.getItem("betlab_bets");
 
 const bets = savedBets ? JSON.parse(savedBets) : defaultBets;
 
+function calculateDashboard() {
+
+    let totalProfit = 0;
+    let totalStake = 0;
+    let wins = 0;
+    let completedBets = 0;
+
+    bets.forEach(function(bet) {
+
+        // Pending Bets werden noch nicht berücksichtigt
+        if (bet.result === "pending") {
+            return;
+        }
+
+        totalProfit += bet.profit;
+        totalStake += bet.stake;
+        completedBets++;
+
+        if (bet.result === "win") {
+            wins++;
+        }
+    });
+
+
+    const bankroll = startingBankroll + totalProfit;
+
+    const roi = totalStake > 0
+        ? (totalProfit / totalStake) * 100
+        : 0;
+
+    const winRate = completedBets > 0
+        ? (wins / completedBets) * 100
+        : 0;
+
+
+    return {
+        bankroll: bankroll,
+        totalProfit: totalProfit,
+        roi: roi,
+        winRate: winRate
+    };
+}
 
 //writing the values into HTML
-document.getElementById("bankroll").textContent =
-    "CHF " + dashboard.bankroll.toFixed(2);
+function updateDashboard() {
 
-document.getElementById("total-profit").textContent =
-    "+ CHF " + dashboard.totalProfit.toFixed(2);
+    const dashboard = calculateDashboard();
 
-document.getElementById("roi").textContent =
-    dashboard.roi.toFixed(2) + "%";
+    document.getElementById("bankroll").textContent =
+        "CHF " + dashboard.bankroll.toFixed(2);
 
-document.getElementById("win-rate").textContent =
-    dashboard.winRate.toFixed(1) + "%";
+    document.getElementById("total-profit").textContent =
+        (dashboard.totalProfit >= 0 ? "+ " : "- ") +
+        "CHF " + Math.abs(dashboard.totalProfit).toFixed(2);
+
+    document.getElementById("roi").textContent =
+        dashboard.roi.toFixed(2) + "%";
+
+    document.getElementById("win-rate").textContent =
+        dashboard.winRate.toFixed(1) + "%";
+    document.getElementById("bet-count").textContent =
+        bets.length + (bets.length === 1 ? " bet" : " bets");
+}
+
+updateDashboard();
 
 const betsTable = document.getElementById("bets-table");
 
@@ -172,4 +219,6 @@ addBetForm.addEventListener("submit", function(event) {
     addBetModal.classList.remove("active");
 
     renderBets();
+
+    updateDashboard();
 });
