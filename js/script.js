@@ -1,5 +1,5 @@
 // Dashboard-Data
-const startingBankroll = 420.50;
+const startingBankroll = 0;
 
 // Default Bets (if no bets are added, these are shown)
 const defaultBets = [
@@ -136,22 +136,59 @@ function updateDashboard() {
 
 const betsTable = document.getElementById("bets-table");
 
+const betSearch = document.getElementById("bet-search");
+const betResultFilter = document.getElementById("bet-result-filter");
+const betTypeFilter = document.getElementById("bet-type-filter");
+
+betSearch.addEventListener("input", renderBets);
+
+betResultFilter.addEventListener("change", renderBets);
+
+betTypeFilter.addEventListener("change", renderBets);
+
 function renderBets() {
+
     betsTable.innerHTML = "";
 
-    bets.forEach(function(bet) {
+    const search = document.getElementById("bet-search").value.toLowerCase();
+    const resultFilter = document.getElementById("bet-result-filter").value;
+    const typeFilter = document.getElementById("bet-type-filter").value;
+
+    const filteredBets = bets.filter(function(bet) {
+
+        const matchesSearch =
+            bet.team1.toLowerCase().includes(search) ||
+            bet.team2.toLowerCase().includes(search);
+
+        const matchesResult =
+            resultFilter === "all" ||
+            bet.result === resultFilter;
+
+        const matchesType =
+            typeFilter === "all" ||
+            bet.type === typeFilter;
+
+        return matchesSearch && matchesResult && matchesType;
+    });
+
+
+    filteredBets.forEach(function(bet) {
+
         const row = document.createElement("div");
         row.classList.add("table-row");
 
         row.innerHTML = `
             <span>${bet.date}</span>
+
             <div class="event">
                 <strong>${bet.team1}</strong>
                 <small>vs ${bet.team2}</small>
             </div>
 
             <span>${bet.type}</span>
+
             <span>${bet.odds.toFixed(2)}</span>
+
             <span>CHF ${bet.stake.toFixed(2)}</span>
 
             <span class="badge ${bet.result}">
@@ -160,7 +197,9 @@ function renderBets() {
 
             <strong>
                 ${bet.profit !== 0
-                    ? (bet.profit > 0 ? "+ " : "") + "CHF " + bet.profit.toFixed(2)
+                    ? (bet.profit > 0 ? "+ " : "") +
+                      "CHF " +
+                      bet.profit.toFixed(2)
                     : "—"
                 }
             </strong>
@@ -189,6 +228,7 @@ function renderChart() {
         });
 
     chartXAxis.innerHTML = "";
+
 
 sortedBets.forEach(function(bet) {
 
@@ -328,4 +368,27 @@ addBetForm.addEventListener("submit", function(event) {
     renderChart();
 
     updateDashboard();
+});
+
+// Synchronize dashboard with LocalStorage changes
+window.addEventListener("storage", function(event) {
+
+    if (event.key !== "betlab_bets") {
+        return;
+    }
+
+    const updatedBets = event.newValue
+        ? JSON.parse(event.newValue)
+        : [];
+
+    bets.length = 0;
+
+    updatedBets.forEach(function(bet) {
+        bets.push(bet);
+    });
+
+    renderBets();
+    renderChart();
+    updateDashboard();
+
 });

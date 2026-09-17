@@ -985,3 +985,64 @@ button {
     stroke-linecap: round;
     stroke-linejoin: round;
 }
+
+.bet-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.bet-actions button {
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.edit-button {
+    background: #202630;
+    color: #ffffff;
+}
+
+.edit-button:hover {
+    background: #2b3340;
+}
+
+.delete-button {
+    background: #2a1c20;
+    color: #ff6b6b;
+}
+
+.delete-button:hover {
+    background: #3a2228;
+}
+
+.my-bets-card .table-row {
+    grid-template-columns: 1fr 1.5fr 1fr 0.7fr 1fr 0.9fr 1fr 1.5fr;
+}
+
+.empty-state {
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.empty-state strong {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.empty-state p {
+    color: #777d87;
+    font-size: 12px;
+    margin: 0 0 12px;
+}
+
+.empty-add-button {
+    border: none;
+    cursor: pointer;
+}

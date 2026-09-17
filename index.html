@@ -30,7 +30,7 @@
                     Dashboard
                 </a>
 
-                <a href="#" class="nav-item">
+                <a href="my-bets.html" class="nav-item">
                     <span>↗</span>
                     My Bets
                 </a>
@@ -294,12 +294,37 @@
                         <p>Your latest recorded bets</p>
                     </div>
 
-                    <a href="#" class="view-all">
+                    <a href="my-bets.html" class="view-all">
                         View all →
                     </a>
 
                 </div>
 
+                <div class="bet-filters">
+
+        <input
+            type="text"
+            id="bet-search"
+            placeholder="Search teams..."
+        >
+
+        <select id="bet-result-filter">
+            <option value="all">All results</option>
+            <option value="win">Wins</option>
+            <option value="loss">Losses</option>
+            <option value="pending">Pending</option>
+        </select>
+
+        <select id="bet-type-filter">
+            <option value="all">All bet types</option>
+            <option value="Match Winner">Match Winner</option>
+            <option value="Over 2.5">Over 2.5</option>
+            <option value="Under 2.5">Under 2.5</option>
+            <option value="BTTS">BTTS</option>
+            <option value="Other">Other</option>
+        </select>
+
+    </div>
 
                 <div class="table">
 
