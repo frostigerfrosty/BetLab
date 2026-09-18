@@ -1,0 +1,359 @@
+```html
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BetLab - Analytics</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/analytics.js" defer></script>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span class="logo-mark">B</span>
+                <span>BETLAB</span>
+            </div>
+
+            <nav class="navigation">
+
+                <p class="nav-title">MENU</p>
+
+                <a href="index.html" class="nav-item">
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+                <a href="my-bets.html" class="nav-item">
+                    <span>↗</span>
+                    My Bets
+                </a>
+
+                <a href="analytics.html" class="nav-item active">
+                    <span>◒</span>
+                    Analytics
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>⌁</span>
+                    Calculator
+                </a>
+
+                <p class="nav-title second-title">GENERAL</p>
+
+                <a href="#" class="nav-item">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="profile">
+
+                    <div class="profile-picture">L</div>
+
+                    <div>
+                        <strong>Laurin</strong>
+                        <small>Personal Account</small>
+                    </div>
+
+                    <span class="profile-more">•••</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div>
+                    <h1>Analytics</h1>
+                    <p>Detailed analysis of your betting performance</p>
+                </div>
+
+                <div class="topbar-actions">
+
+                    <button class="date-button">
+                        September 2026
+                        <span>⌄</span>
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- ANALYTICS FILTERS -->
+            <section class="analytics-filters">
+
+                <div class="filter-group">
+
+                    <label for="analytics-date-filter">
+                        Period
+                    </label>
+
+                    <select id="analytics-date-filter">
+
+                        <option value="all">
+                            All Time
+                        </option>
+
+                        <option value="7">
+                            Last 7 Days
+                        </option>
+
+                        <option value="30">
+                            Last 30 Days
+                        </option>
+
+                        <option value="90">
+                            Last 90 Days
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="analytics-type-filter">
+                        Bet Type
+                    </label>
+
+                    <select id="analytics-type-filter">
+
+                        <option value="all">
+                            All Types
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="analytics-result-filter">
+                        Result
+                    </label>
+
+                    <select id="analytics-result-filter">
+
+                        <option value="all">
+                            All Results
+                        </option>
+
+                        <option value="win">
+                            Wins
+                        </option>
+
+                        <option value="loss">
+                            Losses
+                        </option>
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+
+            <!-- ANALYTICS EMPTY STATE -->
+            <div
+                id="analytics-empty-state"
+                class="empty-state"
+                style="display: none;"
+            >
+
+                <strong>No bets found</strong>
+
+                <p>
+                    There are no bets matching your current filters.
+                </p>
+
+            </div>
+
+
+            <!-- ANALYTICS STATS -->
+            <section class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+                        <span>Total Bets</span>
+                    </div>
+
+                    <div
+                        class="stat-value"
+                        id="analytics-total-bets"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+                        <span>Wins</span>
+                    </div>
+
+                    <div
+                        class="stat-value"
+                        id="analytics-wins"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+                        <span>Losses</span>
+                    </div>
+
+                    <div
+                        class="stat-value"
+                        id="analytics-losses"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-header">
+                        <span>Average Odds</span>
+                    </div>
+
+                    <div
+                        class="stat-value"
+                        id="analytics-average-odds"
+                    >
+                        0.00
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ANALYTICS GRID -->
+            <section class="dashboard-grid">
+
+                <!-- PROFIT CHART -->
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Profit by Bet</h2>
+
+                            <p>
+                                Profit and loss for each recorded bet
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div id="profit-chart"></div>
+
+                </div>
+
+
+                <!-- BET TYPES -->
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Bet Types</h2>
+
+                            <p>
+                                Distribution of your bets
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div id="bet-type-analytics"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PERFORMANCE ANALYSIS -->
+            <section class="card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Performance Analysis</h2>
+
+                        <p>
+                            Overview of your betting results
+                        </p>
+                    </div>
+
+                </div>
+
+                <div id="performance-analysis"></div>
+
+            </section>
+
+
+            <!-- PROFIT BY BET TYPE -->
+            <section class="card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Profit by Bet Type</h2>
+
+                        <p>
+                            Profit and loss for each bet type
+                        </p>
+                    </div>
+
+                </div>
+
+                <div id="profit-by-type"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
+```
