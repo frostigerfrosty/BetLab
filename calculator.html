@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BetLab - Calculator</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/calculator.js" defer></script>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span class="logo-mark">B</span>
+                <span>BETLAB</span>
+            </div>
+
+            <nav class="navigation">
+
+                <p class="nav-title">MENU</p>
+
+                <a href="index.html" class="nav-item">
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+                <a href="my-bets.html" class="nav-item">
+                    <span>↗</span>
+                    My Bets
+                </a>
+
+                <a href="analytics.html" class="nav-item">
+                    <span>◒</span>
+                    Analytics
+                </a>
+
+                <a href="calculator.html" class="nav-item active">
+                    <span>⌁</span>
+                    Calculator
+                </a>
+
+                <p class="nav-title second-title">GENERAL</p>
+
+                <a href="#" class="nav-item">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="profile">
+
+                    <div class="profile-picture">L</div>
+
+                    <div>
+                        <strong>Laurin</strong>
+                        <small>Personal Account</small>
+                    </div>
+
+                    <span class="profile-more">•••</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div>
+                    <h1>Calculator</h1>
+                    <p>Calculate returns, profit and implied probability</p>
+                </div>
+
+            </header>
+
+            <!-- CALCULATOR GRID -->
+            <section class="calculator-grid">
+
+                <!-- INPUT CARD -->
+                <div class="card calculator-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Bet Calculator</h2>
+
+                            <p>
+                                Enter your stake and odds
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <form id="calculator-form">
+
+                        <div class="form-group">
+
+                            <label for="calculator-stake">
+                                Stake
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="number"
+                                    id="calculator-stake"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="20.00"
+                                    required
+                                >
+
+                                <span>CHF</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="calculator-odds">
+                                Odds
+                            </label>
+
+                            <input
+                                type="number"
+                                id="calculator-odds"
+                                min="1.01"
+                                step="0.01"
+                                placeholder="1.80"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="calculator-actions">
+
+                            <button
+                                type="submit"
+                                class="add-button calculator-button"
+                            >
+                                Calculate
+                            </button>
+
+                            <button
+                                type="button"
+                                class="cancel-button"
+                                id="calculator-reset"
+                            >
+                                Reset
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <!-- RESULT CARD -->
+                <div class="card calculator-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Result</h2>
+
+                            <p>
+                                Potential outcome of the bet
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="calculator-results">
+
+                        <div class="calculator-result">
+
+                            <span>Potential Return</span>
+
+                            <strong id="calculator-return">
+                                CHF 0.00
+                            </strong>
+
+                        </div>
+
+                        <div class="calculator-result">
+
+                            <span>Potential Profit</span>
+
+                            <strong
+                                id="calculator-profit"
+                                class="positive-text"
+                            >
+                                + CHF 0.00
+                            </strong>
+
+                        </div>
+
+                        <div class="calculator-result">
+
+                            <span>Implied Probability</span>
+
+                            <strong id="calculator-probability">
+                                0.00%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- EXPLANATION -->
+            <section class="card calculator-info">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>How it works</h2>
+
+                        <p>
+                            The calculator uses standard betting formulas
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="calculator-formulas">
+
+                    <div>
+                        <span>Potential Return</span>
+                        <strong>Stake × Odds</strong>
+                    </div>
+
+                    <div>
+                        <span>Potential Profit</span>
+                        <strong>Return − Stake</strong>
+                    </div>
+
+                    <div>
+                        <span>Implied Probability</span>
+                        <strong>1 ÷ Odds x 100</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
