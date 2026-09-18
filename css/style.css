@@ -1364,3 +1364,140 @@ button {
     }
 
 }
+
+/* CALCULATOR */
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.calculator-card {
+    min-width: 0;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    padding-right: 50px;
+}
+
+.input-wrapper span {
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 11px;
+    pointer-events: none;
+}
+
+.calculator-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.calculator-button {
+    min-width: 105px;
+}
+
+.calculator-results {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.calculator-result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 65px;
+    border-top: 1px solid var(--border);
+}
+
+.calculator-result:first-child {
+    border-top: 0;
+}
+
+.calculator-result span {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.calculator-result strong {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.calculator-result .positive-text {
+    color: var(--green);
+}
+
+.calculator-result .loss-text {
+    color: var(--red);
+}
+
+.calculator-info {
+    margin-bottom: 14px;
+}
+
+.calculator-formulas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.calculator-formulas div {
+    padding: 16px;
+    background: var(--surface-hover);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.calculator-formulas span {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.calculator-formulas strong {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* CALCULATOR RESPONSIVE */
+
+@media (max-width: 1100px) {
+
+    .calculator-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    .calculator-formulas {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator-actions {
+        flex-direction: column;
+    }
+
+    .calculator-actions button {
+        width: 100%;
+    }
+
+}
