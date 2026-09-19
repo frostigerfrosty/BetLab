@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BetLab - Settings</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/settings.js" defer></script>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span class="logo-mark">B</span>
+                <span>BETLAB</span>
+            </div>
+
+            <nav class="navigation">
+
+                <p class="nav-title">MENU</p>
+
+                <a href="index.html" class="nav-item">
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+                <a href="my-bets.html" class="nav-item">
+                    <span>↗</span>
+                    My Bets
+                </a>
+
+                <a href="analytics.html" class="nav-item">
+                    <span>◒</span>
+                    Analytics
+                </a>
+
+                <a href="calculator.html" class="nav-item">
+                    <span>⌁</span>
+                    Calculator
+                </a>
+
+                <p class="nav-title second-title">GENERAL</p>
+
+                <a href="settings.html" class="nav-item active">
+                    <span>⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="profile">
+
+                    <div class="profile-picture">L</div>
+
+                    <div>
+                        <strong>Laurin</strong>
+                        <small>Personal Account</small>
+                    </div>
+
+                    <span class="profile-more">•••</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div>
+                    <h1>Settings</h1>
+                    <p>Manage your BetLab preferences</p>
+                </div>
+
+            </header>
+
+
+            <!-- BANKROLL SETTINGS -->
+            <section class="card settings-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Bankroll</h2>
+
+                        <p>
+                            Set the amount you started betting with
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <form id="settings-form">
+
+                    <div class="form-group">
+
+                        <label for="starting-bankroll">
+                            Starting Bankroll
+                        </label>
+
+                        <div class="settings-input-wrapper">
+
+                            <input
+                                type="number"
+                                id="starting-bankroll"
+                                min="0"
+                                step="0.01"
+                                placeholder="0.00"
+                                required
+                            >
+
+                            <span>CHF</span>
+
+                        </div>
+
+                        <small class="settings-help">
+                            This value is used as the starting point
+                            for your dashboard bankroll.
+                        </small>
+
+                    </div>
+
+
+                    <div class="settings-actions">
+
+                        <button
+                            type="submit"
+                            class="save-button"
+                        >
+                            Save Changes
+                        </button>
+
+                    </div>
+
+                    <p
+                        id="settings-success"
+                        class="settings-success"
+                    >
+                        Settings saved successfully.
+                    </p>
+
+                </form>
+
+            </section>
+
+
+            <!-- DATA SETTINGS -->
+            <section class="card settings-card settings-danger-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Data</h2>
+
+                        <p>
+                            Manage your stored betting data
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="settings-danger">
+
+                    <div>
+
+                        <strong>
+                            Reset all betting data
+                        </strong>
+
+                        <p>
+                            Delete all recorded bets and reset
+                            your starting bankroll.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="reset-data"
+                        class="reset-button"
+                    >
+                        Reset Data
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- RESET CONFIRMATION MODAL -->
+    <div
+        class="modal-overlay"
+        id="reset-modal"
+    >
+
+        <div class="modal settings-confirm-modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>Reset Data?</h2>
+
+                    <p>
+                        This will permanently delete all saved bets.
+                    </p>
+
+                </div>
+
+                <button
+                    class="modal-close"
+                    id="close-reset-modal"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="settings-confirm-actions">
+
+                <button
+                    type="button"
+                    class="cancel-button"
+                    id="cancel-reset"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="button"
+                    class="reset-button"
+                    id="confirm-reset"
+                >
+                    Reset Data
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
