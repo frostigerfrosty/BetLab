@@ -1501,3 +1501,159 @@ button {
     }
 
 }
+
+/* =========================================
+   SETTINGS
+========================================= */
+
+.settings-card {
+    padding: 22px;
+    margin-bottom: 14px;
+}
+
+.settings-card .form-group {
+    max-width: 500px;
+}
+
+.settings-input-wrapper {
+    position: relative;
+}
+
+.settings-input-wrapper input {
+    width: 100%;
+    padding-right: 50px;
+}
+
+.settings-input-wrapper span {
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    transform: translateY(-50%);
+
+    color: #777d87;
+    font-size: 11px;
+
+    pointer-events: none;
+}
+
+.settings-help {
+    color: #626873;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.settings-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 22px;
+}
+
+.settings-success {
+    display: none;
+
+    margin-top: 12px;
+
+    color: #4ade80;
+    font-size: 11px;
+}
+
+.settings-success.visible {
+    display: block;
+}
+
+
+/* DATA */
+
+.settings-danger-card {
+    border-color: #292125;
+}
+
+.settings-danger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+    padding: 16px;
+
+    background: #151216;
+    border: 1px solid #292125;
+    border-radius: 8px;
+}
+
+.settings-danger strong {
+    display: block;
+
+    color: #e2e3e6;
+    font-size: 13px;
+}
+
+.settings-danger p {
+    margin-top: 5px;
+
+    color: #6f747d;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* RESET BUTTON */
+
+.reset-button {
+    border: 1px solid #4a292e;
+
+    padding: 9px 14px;
+
+    border-radius: 7px;
+
+    background: #24171a;
+    color: #f87171;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.reset-button:hover {
+    background: #321d21;
+    border-color: #63343b;
+}
+
+
+/* CONFIRM MODAL */
+
+.settings-confirm-modal {
+    width: 420px;
+}
+
+.settings-confirm-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+/* SETTINGS MOBILE */
+
+@media (max-width: 700px) {
+
+    .settings-danger {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .settings-danger .reset-button {
+        width: 100%;
+    }
+
+}

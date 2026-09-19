@@ -1,5 +1,11 @@
 // Dashboard-Data
-const startingBankroll = 0;
+const savedStartingBankroll =
+    localStorage.getItem("betlab_starting_bankroll");
+
+const startingBankroll =
+    savedStartingBankroll !== null
+        ? Number(savedStartingBankroll)
+        : 0;
 
 // Default Bets (if no bets are added, these are shown)
 const defaultBets = [
